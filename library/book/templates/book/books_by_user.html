@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Books by {{ user.username }}</title>
+</head>
+<body>
+    <h1>Books issued to {{ user.username }}</h1>
+
+    {% if books %}
+        <ul>
+        {% for book in books %}
+            <li>{{ book.name }} by {{ book.authors }}</li>
+        {% endfor %}
+        </ul>
+    {% else %}
+        <p>No books issued to this user.</p>
+    {% endif %}
+
+    <a href="{% url 'books_list' %}">Back to books list</a>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>All orders</title>
+</head>
+<body>
+    <h1>All Orders</h1>
+    <table>
+        <tr>
+            <th>Book</th>
+            <th>User</th>
+            <th>Created At</th>
+            <th>Planned End At</th>
+            <th>End At</th>
+            <th>Actions</th>
+        </tr>
+        {% for order in orders %}
+        <tr>
+            <td>{{ order.book.title }}</td>
+            <td>{{ order.user.email }}</td>
+            <td>{{ order.created_at }}</td>
+            <td>{{ order.plated_end_at }}</td>
+            <td>{{ order.end_at }}</td>
+            <td>
+                {% if not order.end_at %}
+                <a href="{% url 'close_order' order.id %}">Close Order</a>
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+</body>
+</html>
