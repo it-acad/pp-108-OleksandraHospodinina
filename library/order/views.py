@@ -19,7 +19,7 @@ def show_all_orders(request):
 @login_required
 def show_my_orders(request):
     orders = Order.objects.filter(user=request.user)
-    return render(request, 'orders/my_orders.html', {'orders': orders})
+    return render(request, 'order/my_orders.html', {'orders': orders})
 
 
 @login_required
@@ -38,7 +38,7 @@ def create_order(request):
         except Book.DoesNotExist:
             messages.error(request, "Book not found.")
     books = Book.objects.all()
-    return render(request, 'orders/create_order.html', {'books': books})
+    return render(request, 'order/create_order.html', {'books': books})
 
 
 @login_required

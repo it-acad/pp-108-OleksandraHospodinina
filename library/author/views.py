@@ -20,7 +20,7 @@ def show_all_authors(request):
 @user_passes_test(is_admin)
 def show_author_detail(request, author_id):
     author = get_object_or_404(Author, id=author_id)
-    return render(request, 'authors/author_detail.html', {'author': author})
+    return render(request, 'author/author_detail.html', {'author': author})
 
 
 @login_required
@@ -43,7 +43,7 @@ def create_author(request):
             messages.error(request, "Error creating the author.")
             return redirect('create_author')
 
-    return render(request, 'authors/create_author.html')
+    return render(request, 'author/create_author.html')
 
 
 @login_required
