@@ -13,7 +13,7 @@ def is_admin(user):
 @user_passes_test(is_admin)
 def show_all_authors(request):
     authors = Author.objects.all()
-    return render(request, 'authors/all_authors.html', {'authors': authors})
+    return render(request, 'author/all_authors.html', {'authors': authors})
 
 
 @login_required

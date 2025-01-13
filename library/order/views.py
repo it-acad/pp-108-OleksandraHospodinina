@@ -13,7 +13,7 @@ def show_all_orders(request):
         return HttpResponseForbidden("Access denied. Only admins can view all orders.")
 
     orders = Order.objects.all()
-    return render(request, 'orders/all_orders.html', {'orders': orders})
+    return render(request, 'order/all_orders.html', {'orders': orders})
 
 
 @login_required
