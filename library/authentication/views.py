@@ -45,7 +45,7 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.success(request, "Login successful!")
-            return redirect('home')
+            return redirect('base')
         else:
             messages.error(request, "Invalid email or password.")
             return render(request, 'authentication/login.html')
@@ -56,7 +56,7 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     messages.success(request, "You have successfully logged out.")
-    return redirect('login')
+    return redirect('home')
 
 
 def base_view(request):

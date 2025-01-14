@@ -24,7 +24,6 @@ class Book(models.Model):
     def __str__(self):
         return f"Book(id={self.id}, name={self.name}, order={self.order})"
 
-
     def __repr__(self):
         return f"Book(id={self.id})"
 
