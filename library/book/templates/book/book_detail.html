@@ -3,12 +3,25 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book Detail</title>
+    <title>Book Details</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>{{ book.name }}</h1>
-    <p><strong>Description:</strong> {{ book.description }}</p>
-    <p><strong>Count:</strong> {{ book.count }}</p>
-    <a href="{% url 'books_list' %}">Back to Books List</a>
+    <div class="container">
+        <!-- Static Section -->
+        <section class="static-section">
+            <h2>Static Information</h2>
+            <p><strong>Title:</strong> {{ book.name }}</p>
+            <p><strong>Author:</strong> {{ book.author }}</p>
+            <p><strong>Year of Publication:</strong> {{ book.year_of_publication }}</p>
+        </section>
+
+        <!-- Dynamic Section -->
+        <section class="dynamic-section">
+            <h2>Dynamic Information</h2>
+            <p><strong>Date of Issue:</strong> {{ book.issue_date }}</p>
+            <p><strong>Borrowed By:</strong> {{ book.order.username if book.order else "Not borrowed" }}</p>
+        </section>
+    </div>
 </body>
 </html>

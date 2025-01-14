@@ -7,8 +7,9 @@ def books_list(request):
     return render(request, 'book/books_list.html', {'books': books})
 
 def book_detail(request, id):
-    book = Book.objects.get(id=id)
+    book = get_object_or_404(Book, id=id)
     return render(request, 'book/book_detail.html', {'book': book})
+
 
 def books_filter(request):
     query = request.GET.get('query')

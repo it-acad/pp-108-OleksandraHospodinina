@@ -14,9 +14,16 @@ class Book(models.Model):
         related_name='book_orders',
         verbose_name='User who borrowed the book'
     )
+    author = models.CharField(
+        max_length=128,
+        blank=True,
+        null=True,
+        verbose_name="Author"
+    )
 
     def __str__(self):
         return f"Book(id={self.id}, name={self.name}, order={self.order})"
+
 
     def __repr__(self):
         return f"Book(id={self.id})"
